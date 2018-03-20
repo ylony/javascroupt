@@ -2,4 +2,4 @@ Options +FollowSymlinks
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ /javascroupt/index.php?url=$1 [QSA,L]
+RewriteRule ^(.*)$ /javascroupt/index.php?action=$1 [QSA,L]
