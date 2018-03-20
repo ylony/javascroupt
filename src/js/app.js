@@ -5,7 +5,7 @@ var getAll = function(){
 	$.ajax({
 				type:'GET', 
 				cache: false,
-				url:"./getAll.php",
+				url:"./getAll",
 				success: function(data) 
 				{
 					var heroes = JSON.parse(data);
@@ -36,7 +36,7 @@ var addHeroes = function(event){
 	$.ajax({
 				type:'POST', 
 				cache: false,
-				url:"./addHeroes.php",
+				url:"./addHeroes",
 				data : { "nom" : fNom, "pv" : fPv, "description" : fDescription }, 
 				success: function(data) 
 				{
@@ -60,7 +60,7 @@ var deleteHeroes = function(id){
 		$.ajax({
 					type:'POST', 
 					cache: false,
-					url:"./delete.php",
+					url:"./delete",
 					data : { "id" : id }, 
 					success: function(data) 
 					{

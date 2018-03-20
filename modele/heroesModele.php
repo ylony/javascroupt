@@ -23,9 +23,9 @@ class heroesModele{
 	}
 
 	public function addOne($heroes){
-		$nom = $heroes->getNom();
-		$pv = $heroes->getPv();
-		$description = $heroes->getDesc();
+		$nom = Validate::clean($heroes->getNom());
+		$pv = Validate::toInt($heroes->getPv());
+		$description = Validate::clean($heroes->getDesc());
 		$this->sql->query("INSERT INTO heroes (nom,pv,description) VALUES ('{$nom}', '{$pv}', '{$description}')");
 	}
 
@@ -34,10 +34,10 @@ class heroesModele{
 	}
 
 	public function editOne($heroes, $newHeroes){
-		$oldNom = $heroes->getNom();
-		$newNom = $newHeroes->getNom();
-		$newPv = $newHeroes->getPv();
-		$newDescription = $newHeroes->getDesc();		
+		$oldNom = Validate::clean($heroes->getNom());
+		$newNom = Validate::clean($newHeroes->getNom());
+		$newPv = Validate::toInt($newHeroes->getPv());
+		$newDescription = Validate::clean($newHeroes->getDesc());		
 		$this->sql->query("UPDATE heroes SET nom = '{$newNom}', pv = '{$newPv}', description = '{$newDescription}' WHERE nom = '{$oldNom}'");
 	}
 }
